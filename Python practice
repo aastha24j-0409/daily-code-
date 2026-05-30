@@ -1,0 +1,14 @@
+Write a program to reverse a string without using slicing.
+
+Example:
+Input: "python"
+Output: "nohtyp" 
+
+sols = "python"
+reversed_str = ""
+
+for char in s:
+    reversed_str = char + reversed_str
+
+print(reversed_str)
+

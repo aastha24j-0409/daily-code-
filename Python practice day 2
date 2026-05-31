@@ -1,0 +1,34 @@
+# Q1. Reverse a String Without Using Slicing
+
+s = "python"
+reversed_str = ""
+
+for char in s:
+    reversed_str = char + reversed_str
+
+print(reversed_str)
+
+
+# Q2. Find the First Non-Repeating Character
+
+s = "programming"
+
+for char in s:
+    if s.count(char) == 1:
+        print(char)
+        break
+
+
+# Q3. Check if a String is a Palindrome
+
+s = "madam"
+
+reversed_str = ""
+
+for char in s:
+    reversed_str = char + reversed_str
+
+if s == reversed_str:
+    print(True)
+else:
+    print(False)

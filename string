@@ -1,0 +1,56 @@
+q.1. Count Vowels in a String
+Write a Python function to count the number of vowels (a, e, i, o, u) in a given string.
+"Hello World"
+3
+def count_vowels(text):
+    vowels = "aeiouAEIOU"
+    count = 0
+
+    for char in text:
+        if char in vowels:
+            count += 1
+
+    return count
+
+print(count_vowels("Hello World"))
+
+3
+time complexity 
+O(n)
+
+
+q.2. Remove Duplicate Characters
+Write a Python function to remove all duplicate characters in a given string while preserving the order of the remaining characters.
+Input: "programming"
+Output: "progamin"
+
+def remove_duplicates(text):
+    result = ""
+
+    for char in text:
+        if char not in result:
+            result += char
+
+    return result
+
+print(remove_duplicates("programming"))
+
+progamin
+time complexity 
+O(n)
+
+q.3 Find the First Non-Repeating Character
+Write a Python function to find the first non-repeating character in a given string and return its index.
+Input: "swiss"
+Output: 1 (for 'w' in "swiss")
+
+def first_non_repeating(text):
+    for i in range(len(text)):
+        if text.count(text[i]) == 1:
+            return i
+    return -1
+
+print(first_non_repeating("swiss"))
+
+time complexity 
+O(n*2)

@@ -1,0 +1,57 @@
+# Day 4 - Time Complexity Practice
+
+## Q1
+
+for i in range(n):
+    print(i)
+
+Answer: O(n)
+
+---
+
+## Q2
+
+for i in range(n):
+    for j in range(n):
+        print(i, j)
+
+Answer: O(n²)
+
+---
+
+## Q3
+
+i = n
+
+while i > 1:
+    i //= 2
+
+Answer: O(log n)
+
+---
+
+## Q4
+
+for i in range(n):
+    print(i)
+
+for j in range(n):
+    print(j)
+
+Answer: O(n)
+
+---
+
+## Key Notes
+
+- O(1) → Constant time
+- O(n) → One loop
+- O(n²) → Two nested loops
+- O(n³) → Three nested loops
+- O(log n) → Divide by 2 each iteration
+
+## What I Learned Today
+
+- Time complexity measures growth of operations as input size increases.
+- Constants are ignored in Big O notation.
+- The dominant term determines the final complexity.

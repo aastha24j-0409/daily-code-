@@ -1,0 +1,145 @@
+# Day 5 - Intermediate Time Complexity Practice
+
+## Q1
+
+```python
+nums = [1, 2, 3, 4, 5]
+
+print(nums[0])
+```
+
+Answer: O(1)
+
+Reason:
+Accessing an element by index takes constant time.
+
+---
+
+## Q2
+
+```python
+for i in range(n):
+    print(i)
+```
+
+Answer: O(n)
+
+Reason:
+One loop through n elements.
+
+---
+
+## Q3
+
+```python
+for i in range(n):
+    for j in range(i):
+        print(i, j)
+```
+
+Answer: O(n²)
+
+Reason:
+
+0 + 1 + 2 + ... + (n - 1)
+
+= n(n - 1) / 2
+
+Ignoring constants and lower-order terms gives O(n²).
+
+---
+
+## Q4
+
+```python
+i = 1
+
+while i < n:
+    i *= 2
+```
+
+Answer: O(log n)
+
+Reason:
+The value doubles each iteration.
+
+Example:
+
+1 → 2 → 4 → 8 → 16
+
+---
+
+## Q5
+
+```python
+for i in range(n):
+    print(i)
+
+for j in range(n):
+    for k in range(n):
+        print(j, k)
+```
+
+Answer: O(n²)
+
+Reason:
+
+O(n) + O(n²)
+
+Keep the dominant term → O(n²)
+
+---
+
+## Q6
+
+```python
+text = "hello"
+
+for char in text:
+    print(char)
+```
+
+Answer: O(n)
+
+Reason:
+Visit each character once.
+
+---
+
+## Q7
+
+```python
+for i in range(n):
+    for j in range(10):
+        print(i, j)
+```
+
+Answer: O(n)
+
+Reason:
+
+10n
+
+Ignore constants → O(n)
+
+---
+
+# What I Learned Today
+
+- O(1) = Constant Time
+- O(n) = One Loop
+- O(n²) = Two Nested Loops
+- O(log n) = Divide by 2 Each Iteration
+- Ignore Constants in Big O
+- Keep the Dominant Term
+
+# Quick Reference
+
+| Pattern | Time Complexity |
+|----------|------------|
+| Access by index | O(1) |
+| One loop | O(n) |
+| Two nested loops | O(n²) |
+| Three nested loops | O(n³) |
+| Divide by 2 repeatedly | O(log n) |
+| Loop + nested loop | O(n²) |

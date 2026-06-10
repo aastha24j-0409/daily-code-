@@ -1,0 +1,197 @@
+# Day 6 - Time Complexity Practice
+
+## Q1
+
+```python
+arr = [1, 2, 3, 4, 5]
+
+print(arr[-1])
+```
+
+Answer: O(1)
+
+Reason:
+Accessing an element by index is constant time.
+
+---
+
+## Q2
+
+```python
+for i in range(n):
+    print(i)
+```
+
+Answer: O(n)
+
+Reason:
+The loop runs n times.
+
+---
+
+## Q3
+
+```python
+for i in range(n):
+    for j in range(n):
+        print(i, j)
+```
+
+Answer: O(n²)
+
+Reason:
+n × n = n² operations.
+
+---
+
+## Q4
+
+```python
+for i in range(n):
+    for j in range(5):
+        print(i, j)
+```
+
+Answer: O(n)
+
+Reason:
+5 is a constant.
+
+5n → O(n)
+
+---
+
+## Q5
+
+```python
+i = n
+
+while i > 1:
+    i = i // 2
+```
+
+Answer: O(log n)
+
+Reason:
+The value is halved each iteration.
+
+Example:
+
+16 → 8 → 4 → 2 → 1
+
+---
+
+## Q6
+
+```python
+for i in range(n):
+    print(i)
+
+for j in range(n):
+    print(j)
+```
+
+Answer: O(n)
+
+Reason:
+
+O(n) + O(n)
+
+= O(2n)
+
+= O(n)
+
+---
+
+## Q7
+
+```python
+for i in range(n):
+    for j in range(i):
+        print(i, j)
+```
+
+Answer: O(n²)
+
+Reason:
+
+0 + 1 + 2 + ... + (n-1)
+
+= n(n-1)/2
+
+= O(n²)
+
+---
+
+## Q8
+
+```python
+for i in range(n):
+    for j in range(n):
+        for k in range(n):
+            print(i, j, k)
+```
+
+Answer: O(n³)
+
+Reason:
+
+n × n × n
+
+= O(n³)
+
+---
+
+## Q9
+
+```python
+text = "python"
+
+for char in text:
+    print(char)
+```
+
+Answer: O(n)
+
+Reason:
+Visit each character once.
+
+---
+
+## Q10
+
+```python
+nums = [1, 2, 3, 4, 5]
+
+if 3 in nums:
+    print("Found")
+```
+
+Answer: O(n)
+
+Reason:
+Membership search in a list may scan all elements.
+
+---
+
+# What I Learned Today
+
+- O(1) = Constant Time
+- O(n) = Linear Time
+- O(log n) = Logarithmic Time
+- O(n²) = Quadratic Time
+- O(n³) = Cubic Time
+- Ignore constants
+- Keep the dominant term
+
+# Quick Cheat Sheet
+
+O(1)  -> Access by index
+
+O(n)  -> One loop
+
+O(log n) -> Divide by 2 repeatedly
+
+O(n²) -> Two nested loops
+
+O(n³) -> Three nested loops

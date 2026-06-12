@@ -1,0 +1,183 @@
+# Day 11 - Hadoop Basics
+
+## What is Hadoop?
+
+Apache Hadoop is an open-source framework used to store and process large amounts of data across multiple computers.
+
+Instead of using one powerful machine, Hadoop distributes data and processing across many machines.
+
+---
+
+## Why Hadoop?
+
+Traditional systems struggle with huge datasets.
+
+Hadoop helps by:
+
+- Storing large volumes of data
+- Processing data in parallel
+- Handling machine failures automatically
+- Scaling horizontally by adding more machines
+
+---
+
+## Core Components of Hadoop
+
+### 1. HDFS (Hadoop Distributed File System)
+
+Used for distributed storage.
+
+Example:
+
+A large file is split into blocks and stored across multiple servers.
+
+Responsibilities:
+- Store data
+- Replicate data
+- Ensure fault tolerance
+
+---
+
+### 2. MapReduce
+
+Used for distributed data processing.
+
+Responsibilities:
+- Process large datasets
+- Execute tasks in parallel
+- Combine results
+
+Example:
+
+Count words from millions of documents.
+
+---
+
+### 3. YARN (Yet Another Resource Negotiator)
+
+Used for resource management.
+
+Responsibilities:
+- Allocate memory
+- Allocate CPU resources
+- Schedule jobs
+
+---
+
+## Hadoop Architecture
+
+Client
+↓
+YARN
+↓
+MapReduce
+↓
+HDFS
+
+---
+
+## Key Benefits of Hadoop
+
+- Scalability
+- Fault Tolerance
+- Distributed Storage
+- Parallel Processing
+- Cost Effective
+
+---
+
+## Basic HDFS Commands
+
+### List Files
+
+```bash
+hdfs dfs -ls /
+```
+
+### Create Directory
+
+```bash
+hdfs dfs -mkdir /test
+```
+
+### Upload File
+
+```bash
+hdfs dfs -put sample.csv /test
+```
+
+### View File
+
+```bash
+hdfs dfs -cat /test/sample.csv
+```
+
+### Remove File
+
+```bash
+hdfs dfs -rm /test/sample.csv
+```
+
+---
+
+## Hadoop Interview Questions
+
+### Q1. What is Hadoop?
+
+Answer:
+
+Hadoop is an open-source framework used for storing and processing large datasets across clusters of computers.
+
+---
+
+### Q2. What are the core components of Hadoop?
+
+Answer:
+
+1. HDFS
+2. MapReduce
+3. YARN
+
+---
+
+### Q3. What is HDFS?
+
+Answer:
+
+HDFS is Hadoop's distributed file system used for storing data across multiple machines.
+
+---
+
+### Q4. What is MapReduce?
+
+Answer:
+
+MapReduce is the processing engine used to process large datasets in parallel.
+
+---
+
+### Q5. What is YARN?
+
+Answer:
+
+YARN is the resource management component of Hadoop that manages CPU and memory allocation.
+
+---
+
+## Quick Notes
+
+HDFS = Storage
+
+MapReduce = Processing
+
+YARN = Resource Management
+
+---
+
+## What I Learned Today
+
+- Hadoop is used for Big Data processing.
+- HDFS stores data across multiple machines.
+- MapReduce processes data in parallel.
+- YARN manages resources and scheduling.
+- Hadoop provides scalability and fault tolerance.

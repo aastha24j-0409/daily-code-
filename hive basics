@@ -1,0 +1,215 @@
+# Day 13 - Hive Basics
+
+## What is Hive?
+
+Apache Hive is an open-source data warehouse system built on top of Hadoop.
+
+It allows users to query and analyze large datasets stored in HDFS using SQL-like queries called HiveQL.
+
+---
+
+## Why Hive?
+
+Writing Java MapReduce programs can be complex.
+
+Hive simplifies Big Data processing by allowing users to write SQL queries instead of MapReduce code.
+
+---
+
+## Features of Hive
+
+- SQL-like language (HiveQL)
+- Built on Hadoop
+- Handles large datasets
+- Supports data analysis and reporting
+- Scalable and fault-tolerant
+
+---
+
+## Hive Architecture
+
+User
+↓
+HiveQL Query
+↓
+Hive Compiler
+↓
+Execution Engine
+↓
+MapReduce / Tez / Spark
+↓
+HDFS
+
+---
+
+## Hive Components
+
+### 1. Metastore
+
+Stores metadata about:
+- Tables
+- Columns
+- Partitions
+- Data types
+- HDFS file locations
+
+---
+
+### 2. Driver
+
+Responsibilities:
+- Receives HiveQL queries
+- Creates execution plans
+- Returns results to users
+
+---
+
+### 3. Execution Engine
+
+Responsibilities:
+- Executes query plans
+- Interacts with Hadoop components
+- Processes data
+
+---
+
+## Hive Data Types
+
+### Primitive Types
+- INT
+- BIGINT
+- FLOAT
+- DOUBLE
+- STRING
+- BOOLEAN
+
+### Complex Types
+- ARRAY
+- MAP
+- STRUCT
+
+---
+
+## Common Hive Commands
+
+### Create Database
+
+```sql
+CREATE DATABASE company;
+```
+
+### Use Database
+
+```sql
+USE company;
+```
+
+### Create Table
+
+```sql
+CREATE TABLE employee (
+    id INT,
+    name STRING,
+    salary DOUBLE
+);
+```
+
+### Display Databases
+
+```sql
+SHOW DATABASES;
+```
+
+### Display Tables
+
+```sql
+SHOW TABLES;
+```
+
+### Describe Table
+
+```sql
+DESCRIBE employee;
+```
+
+### Insert Data
+
+```sql
+INSERT INTO employee VALUES
+(1, 'John', 50000),
+(2, 'Sarah', 70000);
+```
+
+### Query Data
+
+```sql
+SELECT * FROM employee;
+```
+
+---
+
+## Advantages of Hive
+
+- Easy to learn for SQL users
+- Handles massive datasets
+- Integrates with Hadoop ecosystem
+- Reduces MapReduce complexity
+- Suitable for data warehousing
+
+---
+
+## Interview Questions
+
+### Q1. What is Hive?
+
+Answer:
+
+Hive is a data warehouse system built on Hadoop that uses HiveQL to query and analyze large datasets stored in HDFS.
+
+---
+
+### Q2. What is HiveQL?
+
+Answer:
+
+HiveQL is a SQL-like language used to query data in Hive.
+
+---
+
+### Q3. What is Metastore?
+
+Answer:
+
+The Metastore stores metadata such as table definitions, columns, and HDFS file locations.
+
+---
+
+### Q4. Is Hive suitable for real-time processing?
+
+Answer:
+
+No. Hive is designed for batch processing and analytical workloads.
+
+---
+
+## Quick Revision
+
+Hadoop = Distributed Processing
+
+HDFS = Storage Layer
+
+Hive = SQL Layer on Hadoop
+
+HiveQL = SQL-like Query Language
+
+Metastore = Metadata Storage
+
+---
+
+## What I Learned Today
+
+- Hive is a data warehouse system on Hadoop.
+- Hive uses SQL-like queries called HiveQL.
+- Hive stores metadata in the Metastore.
+- Hive simplifies Big Data analysis.
+- Hive is mainly used for batch processing and analytics.

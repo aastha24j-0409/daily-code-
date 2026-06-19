@@ -1,0 +1,187 @@
+# Day 15 - PySpark DataFrame Basics
+
+## What is a DataFrame?
+
+A DataFrame is a distributed collection of data organized into rows and columns.
+
+It is similar to:
+- A SQL table
+- A Pandas DataFrame
+- An Excel spreadsheet
+
+DataFrames are the most commonly used data structure in PySpark.
+
+---
+
+## Why Use DataFrames?
+
+- Easy to read and write
+- Optimized for performance
+- Handles large datasets
+- Supports SQL operations
+- Fault tolerant and scalable
+
+---
+
+## Creating a Spark Session
+
+```python
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder \
+    .appName("DataFrame Example") \
+    .getOrCreate()
+```
+
+---
+
+## Creating a DataFrame
+
+```python
+data = [
+    ("John", 25),
+    ("Sarah", 30),
+    ("Mike", 28)
+]
+
+df = spark.createDataFrame(data, ["Name", "Age"])
+```
+
+---
+
+## Display Data
+
+```python
+df.show()
+```
+
+Output:
+
++-----+---+
+| Name|Age|
++-----+---+
+| John| 25|
+|Sarah| 30|
+| Mike| 28|
++-----+---+
+
+---
+
+## Display Schema
+
+```python
+df.printSchema()
+```
+
+Output:
+
+root
+ |-- Name: string
+ |-- Age: long
+
+---
+
+## Select Columns
+
+```python
+df.select("Name").show()
+```
+
+---
+
+## Filter Rows
+
+```python
+df.filter(df.Age > 25).show()
+```
+
+---
+
+## Add New Column
+
+```python
+from pyspark.sql.functions import lit
+
+df = df.withColumn("Country", lit("USA"))
+df.show()
+```
+
+---
+
+## Group By
+
+```python
+df.groupBy("Age").count().show()
+```
+
+---
+
+## Count Rows
+
+```python
+df.count()
+```
+
+---
+
+## Advantages of DataFrames
+
+- Distributed processing
+- Better performance
+- SQL support
+- Handles large datasets efficiently
+- Easy data transformations
+
+---
+
+## Interview Questions
+
+### Q1. What is a DataFrame?
+
+Answer:
+
+A DataFrame is a distributed collection of data organized into rows and columns.
+
+---
+
+### Q2. How is a DataFrame similar to SQL?
+
+Answer:
+
+A DataFrame behaves like a SQL table and supports SQL-like operations such as select, filter, groupBy, and aggregation.
+
+---
+
+### Q3. Why are DataFrames preferred in PySpark?
+
+Answer:
+
+DataFrames are optimized for performance, easy to use, and support distributed processing.
+
+---
+
+## Quick Revision
+
+Spark Session = Entry point to Spark
+
+DataFrame = Table of rows and columns
+
+show() = Display data
+
+select() = Select columns
+
+filter() = Filter rows
+
+groupBy() = Aggregate data
+
+count() = Count rows
+
+---
+
+## What I Learned Today
+
+- DataFrames are the primary data structure in PySpark.
+- DataFrames store data in rows and columns.
+- DataFrames support SQL-like operations.
+- PySpark DataFrames are optimized for big data processing.
+- DataFrames are scalable and fault tolerant.

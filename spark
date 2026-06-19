@@ -1,0 +1,199 @@
+# Day 14 - Apache Spark Basics
+
+## What is Apache Spark?
+
+Apache Spark is an open-source distributed computing framework used for processing large datasets quickly across clusters of computers.
+
+Spark performs in-memory processing, making it much faster than traditional MapReduce.
+
+---
+
+## Why Spark?
+
+Traditional MapReduce writes intermediate results to disk, which can be slow.
+
+Spark stores data in memory whenever possible, resulting in much faster processing.
+
+---
+
+## Features of Spark
+
+- Fast in-memory processing
+- Distributed computing
+- Fault tolerant
+- Scalable
+- Supports multiple programming languages:
+  - Python (PySpark)
+  - Scala
+  - Java
+  - R
+
+---
+
+## Spark Architecture
+
+Application
+↓
+Spark Driver
+↓
+Cluster Manager
+↓
+Executors
+↓
+Tasks
+
+---
+
+## Components of Spark
+
+### 1. Driver Program
+
+Responsibilities:
+- Creates Spark Context
+- Coordinates execution
+- Schedules tasks
+- Collects results
+
+---
+
+### 2. Cluster Manager
+
+Responsibilities:
+- Allocates resources
+- Manages executors
+
+Examples:
+- Standalone Cluster Manager
+- YARN
+- Kubernetes
+
+---
+
+### 3. Executors
+
+Responsibilities:
+- Execute tasks
+- Store data in memory
+- Return results to the driver
+
+---
+
+## Spark Ecosystem
+
+### Spark Core
+Basic distributed processing engine.
+
+### Spark SQL
+Used for structured data processing using SQL.
+
+### Spark Streaming
+Processes real-time streaming data.
+
+### MLlib
+Machine Learning library.
+
+### GraphX
+Graph processing library.
+
+---
+
+## PySpark Example
+
+```python
+from pyspark.sql import SparkSession
+
+spark = SparkSession.builder \
+    .appName("Demo") \
+    .getOrCreate()
+
+data = [("John", 25),
+        ("Sarah", 30)]
+
+df = spark.createDataFrame(data, ["Name", "Age"])
+
+df.show()
+```
+
+---
+
+## Why Spark is Faster than Hadoop MapReduce
+
+MapReduce:
+Disk → Process → Disk → Process
+
+Spark:
+Memory → Process → Process
+
+Spark avoids unnecessary disk operations.
+
+---
+
+## Advantages of Spark
+
+- High speed
+- Easy to use
+- Supports SQL queries
+- Handles big data efficiently
+- Supports machine learning and streaming
+
+---
+
+## Interview Questions
+
+### Q1. What is Apache Spark?
+
+Answer:
+
+Apache Spark is an open-source distributed computing framework used for processing large datasets quickly using in-memory computation.
+
+---
+
+### Q2. Why is Spark faster than MapReduce?
+
+Answer:
+
+Spark performs in-memory processing and minimizes disk I/O.
+
+---
+
+### Q3. What is PySpark?
+
+Answer:
+
+PySpark is the Python API for Apache Spark.
+
+---
+
+### Q4. Name some Spark components.
+
+Answer:
+
+- Spark Core
+- Spark SQL
+- Spark Streaming
+- MLlib
+- GraphX
+
+---
+
+## Quick Revision
+
+Hadoop = Distributed Storage and Processing
+
+HDFS = Storage
+
+MapReduce = Disk-Based Processing
+
+Spark = In-Memory Processing
+
+PySpark = Python API for Spark
+
+---
+
+## What I Learned Today
+
+- Spark is a distributed computing framework.
+- Spark processes data in memory.
+- Spark is faster than MapReduce.
+- PySpark allows Spark programming using Python.
+- Spark supports SQL, streaming, and machine learning.

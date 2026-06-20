@@ -1,0 +1,55 @@
+# Day 17 - PySpark Coding Practice
+
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col
+
+# Create Spark Session
+spark = SparkSession.builder \
+    .appName("Day17 Practice") \
+    .getOrCreate()
+
+# Create Data
+data = [
+    ("John", 25, "IT"),
+    ("Sarah", 30, "HR"),
+    ("Mike", 28, "IT"),
+    ("Emma", 35, "Finance")
+]
+
+# Create DataFrame
+df = spark.createDataFrame(
+    data,
+    ["Name", "Age", "Department"]
+)
+
+# Display Data
+print("Original Data")
+df.show()
+
+# Select Columns
+print("Select Name and Age")
+df.select("Name", "Age").show()
+
+# Filter Rows
+print("Employees older than 28")
+df.filter(col("Age") > 28).show()
+
+# Add New Column
+print("Add Bonus Column")
+df = df.withColumn("Bonus", col("Age") * 1000)
+df.show()
+
+# Group By Department
+print("Count Employees by Department")
+df.groupBy("Department").count().show()
+
+# Sort Data
+print("Sort by Age")
+df.orderBy("Age").show()
+
+# Count Rows
+print("Number of Employees:")
+print(df.count())
+
+# Stop Spark Session
+spark.stop()

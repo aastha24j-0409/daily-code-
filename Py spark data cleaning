@@ -1,0 +1,62 @@
+# Day 18 - PySpark Data Cleaning Practice
+
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col
+
+# Create Spark Session
+spark = SparkSession.builder \
+    .appName("Data Cleaning Practice") \
+    .getOrCreate()
+
+# Sample Data
+data = [
+    ("John", 25, "IT"),
+    ("Sarah", None, "HR"),
+    ("Mike", 28, "IT"),
+    ("Emma", 35, None),
+    ("David", None, "Finance")
+]
+
+# Create DataFrame
+df = spark.createDataFrame(
+    data,
+    ["Name", "Age", "Department"]
+)
+
+print("Original Data")
+df.show()
+
+# Display Schema
+print("Schema")
+df.printSchema()
+
+# Count Missing Values
+print("Missing Values")
+df.select(
+    col("Name"),
+    col("Age"),
+    col("Department")
+).show()
+
+# Remove Rows with Null Values
+print("Drop Null Values")
+df.dropna().show()
+
+# Fill Missing Age with 0
+print("Fill Missing Age")
+df.fillna({"Age": 0}).show()
+
+# Fill Missing Department with Unknown
+print("Fill Missing Department")
+df.fillna({"Department": "Unknown"}).show()
+
+# Filter Employees Older Than 25
+print("Employees Older Than 25")
+df.filter(col("Age") > 25).show()
+
+# Count Employees by Department
+print("Employee Count by Department")
+df.groupBy("Department").count().show()
+
+# Stop Spark Session
+spark.stop()

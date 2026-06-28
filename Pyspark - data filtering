@@ -1,0 +1,78 @@
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col
+
+# Create Spark Session
+spark = SparkSession.builder \
+    .appName("PySparkFiltering") \
+    .getOrCreate()
+
+# Sample Data
+data = [
+    (101, "John", 25, "IT", 60000),
+    (102, "Alice", 30, "HR", 55000),
+    (103, "Bob", 28, "IT", 70000),
+    (104, "Emma", 35, "Finance", 90000),
+    (105, "David", 24, "HR", 50000),
+    (106, "Sophia", 32, "IT", 80000)
+]
+
+columns = ["EmpID", "Name", "Age", "Department", "Salary"]
+
+# Create DataFrame
+df = spark.createDataFrame(data, columns)
+
+print("Original DataFrame")
+df.show()
+
+# Select specific columns
+print("Select Name and Salary")
+df.select("Name", "Salary").show()
+
+# Filter Salary greater than 60000
+print("Salary > 60000")
+df.filter(df.Salary > 60000).show()
+
+# Filter IT Department
+print("IT Department")
+df.filter(df.Department == "IT").show()
+
+# Multiple Conditions
+print("IT Employees with Salary > 65000")
+df.filter(
+    (df.Department == "IT") &
+    (df.Salary > 65000)
+).show()
+
+# Filter Age >= 30
+print("Age >= 30")
+df.filter(df.Age >= 30).show()
+
+# SQL Style Filter
+print("SQL Expression Filter")
+df.filter("Age >= 30").show()
+
+# Sort Salary Ascending
+print("Salary Ascending")
+df.orderBy("Salary").show()
+
+# Sort Salary Descending
+print("Salary Descending")
+df.orderBy(df.Salary.desc()).show()
+
+# Sort by Department then Salary Descending
+print("Department then Salary Descending")
+df.orderBy("Department", df.Salary.desc()).show()
+
+# Select with Alias
+print("Using Alias")
+df.select(
+    col("Name").alias("Employee Name"),
+    col("Salary").alias("Annual Salary")
+).show()
+
+# Chaining Operations
+print("Filter + Select + Sort")
+df.filter(df.Salary > 55000) \
+    .select("Name", "Department", "Salary") \
+    .orderBy(df.Salary.desc()) \
+    .show()

@@ -1,0 +1,16 @@
+print("Simple Expense Tracker")
+
+food = float(input("Enter food expense: $"))
+transport = float(input("Enter transport expense: $"))
+shopping = float(input("Enter shopping expense: $"))
+other = float(input("Enter other expense: $"))
+
+total = food + transport + shopping + other
+
+print("\n--- Expense Summary ---")
+print(f"Food: ${food:.2f}")
+print(f"Transport: ${transport:.2f}")
+print(f"Shopping: ${shopping:.2f}")
+print(f"Other: ${other:.2f}")
+
+print(f"\nTotal Expense: ${total:.2f}")
